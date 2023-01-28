@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!--bootstrap 4.31 link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--link to index css file-->
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<body>
+    <!--jumbotron to provide area for title and input section for the search button-->
+    <div class="jumbotron jumbotron-fluid ">
+    </div>
+        <h1 class="display-4 text-center">Weather Dashboard</h1>
+        <p class="lead text-center"> Author: Ian Millichamp</p>
+    </div>
+        <p class="text-center" ;>This is a simple Weather Dashboard, use the input box to select a city you need up
+            to-date weather information for and click search.</p>
+            <div class="form-group col-4 mx-auto row">
+               <!--create a button to allow the user to search chosen cities-->
+                <button type="submit" class="btn btn-primary mb-2 " style="margin-left: 11.5vw;">Search Cities</button>
+                <!--create a text input area for the user to enter the city name they wish to search for-->
+                <input type="text" class="form-control " id="inputCity" placeholder="Search">
+                <!--create area to show previous searches by the user-->
+                <ul id="past-searches" class="list-group p-2 row"></ul>
+                <!--create a button to clear previous searches by the user-->
+                <button type="button" id="clear" class="btn bg-danger text-white mb-2" style="margin-left: 10vw;">Clear Past Searches</button>
+              </div>
+              
+            </div>
+    </div>
+    <div class="main-weather container-fluid p-2 col">
+          <!-- Create Div to display todays weather-->
+          <div class="report"> <h2>Today:</h2>
+            <div class="card">
+              <div class="card-body row">
+                <div class="col text-center">
+                  <img id="today-img" class="img-fluid">
+                </div>
+                <div class="col-9 d-flex flex-column justify-content-around">
+                  <h3 id="city"></h3>
+                  <div>Temperature: <span id="temp"></span></div>
+                  <div>Humidity: <span id="humidity"></span></div>
+                  <div>Wind Speed: <span id="wind"></span></div>
+                  <div >UV Index: <span id="uv" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Create cards to display five days of weather information  -->
+          <div class="report pt-3">
+            <h3>Five Day Forcast:</h3>
+            <div class="card-deck row">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="day0"></h5>
+                  <img id="img0" class="card-img img-fluid">
+                    <div>Temp: <span id="temp0"></span></div>
+                    <div>Humidity: <span id="humidity0"></span></div>
+                    <div>Wind Speed: <span id="wind0"></span></div>
+                  <div >UV Index: <span id="uv0" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="day1"></h5>
+                  <img id="img1" class="card-img img-fluid">
+                    <div>Temp: <span id="temp1"></span></div>
+                    <div>Humidity: <span id="humidity1"></span></div>
+                    <div>Wind Speed: <span id="wind1"></span></div>
+                  <div >UV Index: <span id="uv1" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="day2"></h5>
+                  <img id="img2" class="card-img img-fluid">
+                    <div>Temp: <span id="temp2"></span></div>
+                    <div>Humidity: <span id="humidity2"></span></div>
+                    <div>Wind Speed: <span id="wind2"></span></div>
+                  <div >UV Index: <span id="uv2" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="day3"></h5>
+                  <img id="img3" class="card-img img-fluid">
+                    <div>Temp: <span id="temp3"></span></div>
+                    <div>Humidity: <span id="humidity3"></span></div>
+                    <div>Wind Speed: <span id="wind3"></span></div>
+                  <div >UV Index: <span id="uv3" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="day4"></h5>
+                  <img id="img4" class="card-img img-fluid">
+                    <div>Temp: <span id="temp4"></span></div>
+                    <div>Humidity: <span id="humidity4"></span></div>
+                    <div>Wind Speed: <span id="wind"></span></div>
+                  <div >UV Index: <span id="uv" class="p-1 rounded"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--js file link-->
+    <script src="./assets/js/index.js"></script>
+    <!--js bootstrap links-->
+</body>
+
+</html>
