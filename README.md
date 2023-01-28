@@ -68,6 +68,10 @@ https://getbootstrap.com/docs/4.3/getting-started/introduction/ - intitiate css 
 https://getbootstrap.com/docs/4.3/components/jumbotron/ - basic jumbotron code.
 https://getbootstrap.com/docs/4.3/components/input-group/ - basic input and button code.
 https://getbootstrap.com/docs/4.3/utilities/sizing/ - sizing guide for bootstrap
+netinformation.com
+http://net-informations.com/jq/iq/onload.htm#:~:text=The%20key%20difference%20between%20%24%20%28document%29.ready%20%28%29%20and,but%20after%20the%20whole%20DOM%20itself%20is%20ready.
+
+understanding which is bvetter to use window.load or document.ready
 
 ## License
 
