@@ -24,6 +24,36 @@ $(document).ready(function () {
     let savedCities= [];
   
 
+ /*get todays weather information from openweathermap.org using the following function*/
+
+ function getToday() {
+    let apiCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myAPIKey}&units=imperial`;
+
+    $.ajax({
+      url: apiCurrentWeather,
+      method: "GET",
+      error: function () {
+        alert("City not found. Please check spelling and search again.");
+        $("#search").val("");
+      }
+    }).then(function (response) {
+      checkPast();
+      weatherId = response.weather[0].id;
+      decodeWeatherId();
+
+      $("#city").text(response.name);
+      $("#temp").text(`${response.main.temp} °F`);
+      $("#humidity").text(`${response.main.humidity} %`);
+      $("#wind").text(`${response.wind.speed} MPH`);
+      $("#today-img").attr("src", `./Assets/${weather}.png`).attr("alt", weather);
+
+      cityLat = response.coord.lat;
+      cityLon = response.coord.lon;
+
+      getUV();
+      getFiveDay();
+    });
+  }
 
 
     /**create a listening event for the search button being clicked */
@@ -60,7 +90,16 @@ $("#pastSearches").on("click",".past",function () {
     getToday();
   });
 
-
+/**create a function to see if the city has already been searched for to prevent duplicate buttons from happening */
+function checkDuplicateCities () {
+    if ( $(`#past-searches button[data-city="${city}"]`).length ) { 
+      $("#search").val("");
+    } else {
+      addCity();
+      savedCities.push(city);
+      localStorage.setItem("cities", JSON.stringify(savedCities))
+    }
+  }
 
 
 
