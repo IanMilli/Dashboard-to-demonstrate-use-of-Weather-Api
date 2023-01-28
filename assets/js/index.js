@@ -27,25 +27,25 @@ $(document).ready(function () {
 
 
     /**create a listening event for the search button being clicked */
-    $("#search-btn").on("click", function () {
+    $("#searchBtn").on("click", function () {
         /**use event.preventDefault() to stop the default response to a button click and to instead obey the following if statement */
         event.preventDefault();
         /**  Search for a city on click that has the same value as that entered by the user
-         by creating the following if statement where we state that if the value of the input box with hte id search is not equal to a string then...
+         by creating the following if statement where we state that if the value of the input box with the id inputCity is not equal to a string then...
          */
-        if ($("#search").val() !== "") {
-/** ......make the empty variable city equal to the text value of the input box with the id search, use . trim to remove any excess spaces the user inputs  
+        if ($("#inputCity").val() !== "") {
+/** ......make the empty variable city equal to the text value of the input box with the id inputCity, use . trim to remove any excess spaces the user inputs  
  * and run a function to get todays weather.
 */
-          city = $("#search").val().trim();
+          city = $("#inputCity").val().trim();
         }
         getToday();
       });
     
       // Add city buttons
       function addCity() {
-        $("#past-searches").prepend($("<button>").attr("type", "button").attr("data-city", city).addClass("past text-muted list-group-item list-group-item-action").text(city));
-        $("#search").val("");
+        $("#past-searches").prepend($("<button>").attr("type", "button").attr("data-city", city).addClass("past text-muted list-group-item list-group-item-action bg-primary").text(city));
+        $("inputCity").val("");
       }
 
 
