@@ -14,15 +14,23 @@
 </head>
 
 <body>
+    <!--jumbotron to provide area for title and input section for the search button-->
     <div class="jumbotron jumbotron-fluid ">
+    </div>
         <h1 class="display-4 text-center">Weather Dashboard</h1>
         <p class="lead text-center"> Author: Ian Millichamp</p>
-        <hr class="my-4">
+    </div>
         <p class="text-center" ;>This is a simple Weather Dashboard, use the input box to select a city you need up
             to-date weather information for and click search.</p>
             <div class="form-group col-4 mx-auto">
+               <!--create a button to allow the user to search chosen cities-->
                 <button type="submit" class="btn btn-primary mb-2 " style="margin-left: 11.5vw;">Search Cities</button>
+                <!--create a text input area for the user to enter the city name they wish to search for-->
                 <input type="text" class="form-control " id="inputCity" placeholder="Search">
+                <!--create area to show previous searches by the user-->
+                <ul id="past-searches" class="list-group p-2 row"></ul>
+                <!--create a button to clear previous searches by the user-->
+                <button type="button" id="clear" class="btn bg-danger text-white mb-2" style="margin-left: 10vw;">Clear Past Searches</button>
               </div>
               
             </div>
