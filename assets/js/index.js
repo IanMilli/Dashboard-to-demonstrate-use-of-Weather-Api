@@ -24,66 +24,7 @@ $(document).ready(function () {
     let savedCities= [];
   
 
- /*get todays weather information from openweathermap.org using the following function*/
-
- function getToday() {
-    let apiCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myAPIKey}&units=imperial`;
-
-    $.ajax({
-      url: apiCurrentWeather,
-      method: "GET",
-      error: function () {
-        alert("City not found. Please check spelling and search again.");
-        $("#search").val("");
-      }
-    }).then(function (response) {
-      checkPast();
-      weatherId = response.weather[0].id;
-      decodeWeatherId();
-
-      $("#city").text(response.name);
-      $("#temp").text(`${response.main.temp} °C`);
-      $("#humidity").text(`${response.main.humidity} %`);
-      $("#wind").text(`${response.wind.speed} MPH`);
-      $("#today-img").attr("src", `./Assets/${weather}.png`).attr("alt", weather);
-
-      cityLat = response.coord.lat;
-      cityLon = response.coord.lon;
-
-      getUV();
-      getFiveDay();
-    });
-  }
-   /**create a function to retrieve required UV info */
-   function getUV() {
-    $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/uvi?appid=${myApiKey}&lat=${cityLat}&lon=${cityLon}`,
-      method: "GET"
-    }).then(function (response) {
-      uvIndex = response.value;
-      decodeUV();
-      $("#uv").text(uvIndex).css("background-color", uv);
-    })
-  }
-
-  function getFiveDay() {
-    var apiFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLonon}&exclude=hourly,minutely,current&appid=${apiKey}&units=imperial`
-    $.ajax({
-      url: apiFive,
-      method: "GET"
-    }).then(function (response) {
-      for (var i = 0; i < 5; i++) {
-        var unixTime = response.daily[i].dt
-        $(`#day${i}`).text(moment.unix(unixTime).format('l'))
-        $(`#temp${i}`).text(`${response.daily[i].temp.day} °C`);
-        $(`#hum${i}`).text(`${response.daily[i].humidity} %`);
-        weatherId = response.daily[i].weather[0].id
-        decodeWeatherId();
-        $(`#img${i}`).attr("src", `./Assets/${weather}.png`).attr("alt", weather)
-      }
-    })
-  }
-
+ 
 
     /**create a listening event for the search button being clicked */
     $("#searchBtn").on("click", function () {
@@ -130,16 +71,144 @@ function checkDuplicateCities () {
     }
   }
 
+/*get todays weather information from openweathermap.org using the following function*/
 
+function getToday() {
+  let apiCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myAPIKey}&units=imperial`;
 
+  $.ajax({
+    url: apiCurrentWeather,
+    method: "GET",
+    error: function () {
+      alert("City not found. Please check spelling and search again.");
+      $("#search").val("");
+    }
+  }).then(function (response) {
+    checkDuplicateCities();
+    weatherId = response.weather[0].id;
+    decodeWeatherId();
 
+    $("#city").text(response.name);
+    $("#temp").text(`${response.main.temp} °C`);
+    $("#humidity").text(`${response.main.humidity} %`);
+    $("#wind").text(`${response.wind.speed} MPH`);
+    $("#today-img").attr("src", `./Assets/${weather}.png`).attr("alt", weather);
 
+    cityLat = response.coord.lat;
+    cityLon = response.coord.lon;
 
+    getUV();
+    getFiveDay();
+  });
+}
+ /**create a function to retrieve required UV info */
+ function getUV() {
+  $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/uvi?appid=${myAPIKey}&lat=${cityLat}&lon=${cityLon}`,
+    method: "GET"
+  }).then(function (response) {
+    uvIndex = response.value;
+    decodeUV();
+    $("#uv").text(uvIndex).css("background-color", uv);
+  })
+}
 
+function getFiveDay() {
+  let apiFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,minutely,current&appid=${myAPIKey}&units=metric`
+  $.ajax({
+    url: apiFive,
+    method: "GET"
+  }).then(function (response) {
+    for (var i = 0; i < 5; i++) {
+      var unixTime = response.daily[i].dt
+      $(`#day${i}`).text(moment.unix(unixTime).format('l'))
+      $(`#temp${i}`).text(`${response.daily[i].temp.day} °C`);
+      $(`#hum${i}`).text(`${response.daily[i].humidity} %`);
+      weatherId = response.daily[i].weather[0].id
+      decodeWeatherId();
+      $(`#img${i}`).attr("src", `./Assets/${weather}.png`).attr("alt", weather)
+    }
+  })
+}
+// WEATHER DECODERS -----------------------------------------------------------------------
 
+// Change img for weather 
+function decodeWeatherId() {
+  switch (true) {
+    case (weatherId > 199 && weatherId < 299):
+      weather = "Thunderstorm";
+      break;
+    case (weatherId > 299 && weatherId < 599):
+      weather = "Rain";
+      break;
+    case (weatherId > 599 && weatherId < 699):
+      weather = "Snow";
+      break;
+    case (weatherId > 699 && weatherId < 799):
+      weather = "Atmostphere";
+      break;
+    case weatherId === 800:
+      weather = "Clear";
+      break;
+    case weatherId > 800:
+      weather = "Clouds"
+  }
+}
 
+function decodeUV() {
+  uv = "";
+  switch (true) {
+    case (uvIndex >= 0 && uvIndex < 3):
+      uv = "green";
+      break;
+    case (uvIndex >= 3 && uvIndex < 6):
+      uv = "darkkhaki";
+      break;
+    case (uvIndex >= 6 && uvIndex < 8):
+      uv = "orange";
+      break;
+    case (uvIndex >= 8 && uvIndex < 11):
+      uv = "red";
+      break;
+    case (uvIndex >= 11):
+      uv = "violet"
+  }
+}
 
+ // Load Cities
+ function loadCities() {
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
+    if (storedCities !== null) {
+      savedCities = storedCities;
+      renderCities();
+    } else {
+      city = "San Diego"
+      checkPast();
+    }
+  }
 
+  function renderCities() {
+    for (var i = 0; i < savedCities.length; i++) {
+      city = savedCities[i];
+      addCity();
+    }
+  }
 
-    })
-  
+  // Clear Storage 
+
+  $("#clear").on("click", function () {
+    localStorage.clear();
+    savedCities = [];
+    $("#past-searches").empty();
+    city = "San Diego";
+    init();
+  })
+
+  // INIT -----------------------------------------------------------------------
+
+  // Initialize with SD
+  function init() {
+    getToday();
+  }
+
+});
