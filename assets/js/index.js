@@ -42,13 +42,23 @@ $(document).ready(function () {
         getToday();
       });
     
-      // Add city buttons
+      /** add buttons for each city in the past searches so that the user can click on them to get the weather data for them without
+       * having to re search the cities name using the following function addCity */ 
       function addCity() {
-        $("#past-searches").prepend($("<button>").attr("type", "button").attr("data-city", city).addClass("past text-muted list-group-item list-group-item-action bg-primary").text(city));
+        $("#pastSearches").prepend($("<button>").attr("type", "button").attr("cityInfo", city).addClass("past text-muted list-group-item list-group-item-action bg-primary").text(city));
         $("inputCity").val("");
       }
 
+/*Create a listening event for if someone clicks on one of the buttons created to display previously searched cities  */
 
+$("#pastSearches").on("click",".past",function () {
+     /**use event.preventDefault() to stop the default response to a button click and to instead obey the following if statement */
+    event.preventDefault();
+    /**let city in this function = the buttons connected to the id pastSearches plus the attribute cityInfo */
+    city = $(this).attr("cityInfo");
+    /**run the function getToday to get todays weather data for the requested past search city */
+    getToday();
+  });
 
 
 
