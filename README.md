@@ -63,7 +63,11 @@ Author Ian Millichamp
 Week 8 EDX-Trilogy BootCamp - Front End Web Development Classes 
 Instructor provided video to guide start of project - Dane Edwards via Class Slack
 
-
+Bootstrap 4.31
+https://getbootstrap.com/docs/4.3/getting-started/introduction/ - intitiate css and js links to style and manipulate bootstrap html.
+https://getbootstrap.com/docs/4.3/components/jumbotron/ - basic jumbotron code.
+https://getbootstrap.com/docs/4.3/components/input-group/ - basic input and button code.
+https://getbootstrap.com/docs/4.3/utilities/sizing/ - sizing guide for bootstrap
 
 ## License
 
