@@ -42,7 +42,7 @@ $(document).ready(function () {
       decodeWeatherId();
 
       $("#city").text(response.name);
-      $("#temp").text(`${response.main.temp} °F`);
+      $("#temp").text(`${response.main.temp} °C`);
       $("#humidity").text(`${response.main.humidity} %`);
       $("#wind").text(`${response.wind.speed} MPH`);
       $("#today-img").attr("src", `./Assets/${weather}.png`).attr("alt", weather);
@@ -53,6 +53,35 @@ $(document).ready(function () {
       getUV();
       getFiveDay();
     });
+  }
+   /**create a function to retrieve required UV info */
+   function getUV() {
+    $.ajax({
+      url: `https://api.openweathermap.org/data/2.5/uvi?appid=${myApiKey}&lat=${cityLat}&lon=${cityLon}`,
+      method: "GET"
+    }).then(function (response) {
+      uvIndex = response.value;
+      decodeUV();
+      $("#uv").text(uvIndex).css("background-color", uv);
+    })
+  }
+
+  function getFiveDay() {
+    var apiFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLonon}&exclude=hourly,minutely,current&appid=${apiKey}&units=imperial`
+    $.ajax({
+      url: apiFive,
+      method: "GET"
+    }).then(function (response) {
+      for (var i = 0; i < 5; i++) {
+        var unixTime = response.daily[i].dt
+        $(`#day${i}`).text(moment.unix(unixTime).format('l'))
+        $(`#temp${i}`).text(`${response.daily[i].temp.day} °C`);
+        $(`#hum${i}`).text(`${response.daily[i].humidity} %`);
+        weatherId = response.daily[i].weather[0].id
+        decodeWeatherId();
+        $(`#img${i}`).attr("src", `./Assets/${weather}.png`).attr("alt", weather)
+      }
+    })
   }
 
 
