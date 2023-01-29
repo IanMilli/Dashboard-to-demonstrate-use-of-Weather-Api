@@ -44,16 +44,16 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-
+console.log(response);
         todaysWeatherEl.classList.remove("d-none");
         // Parse response to display current weather
         currentDate = moment().format ('D/MM/YYYY'); 
         let day = moment().format("D");
         let month = moment().format("MM");
         let year = moment().format("YYYY");
-        nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
-        let weatherIMG = response.data.weather[0].icon;
-        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIMG + "@2x.png");
+        nameEl.innerHTML = response.name + " (" + day + "/" + month + "/" + year + ") ";
+      //  let weatherIMG = response.main.weather[0].icon;
+        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + /*weatherIMG +*/ "@2x.png");
         currentIMGEl.setAttribute("alt", response.data.weather[0].description);
         currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
         currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
