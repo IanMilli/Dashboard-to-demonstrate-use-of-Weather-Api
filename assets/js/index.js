@@ -38,9 +38,12 @@ $(document).ready(function () {
 
   function getWeather(cityName) {
     // Execute a current weather get request from open weather api
-    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey}`;
-    axios.get(queryURL)
-        .then(function (response) {
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey};`
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+
         todaysWeatherEl.classList.remove("d-none");
         // Parse response to display current weather
         const currentDate = new Date(response.data.dt * 1000);
