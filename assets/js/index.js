@@ -108,21 +108,29 @@ console.log(response);
               forecastEls[i].append(forecastDateEl);
 
               // Icon for current weather
-              const forecastWeatherEl = document.createElement("img");
-              $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
-              $("forecastDate").attr("alt", response.list[i].weather[0].description);
-              forecastEls[i].append(forecastWeatherEl);
+             // const forecastWeatherEl = document.createElement("img");
+            //  $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
+            //  $("forecastDate").attr("alt", response[i+1].weather[0].description);
+            //  forecastEls[i].append(forecastWeatherEl);
+
               const forecastTempEl = document.createElement("p");
-              
-              let maximumTemp = fahrenheitToCelsius(response.list[i].main.temp_max);
-              console.log(response.list[i].main.temp_max);
+              let maximumTemp = kelvinToCelsius(response.list[i+1].main.temp_max);
+              console.log(response.list[i+1].main.temp_max);
               console.log("maximumTemp = ",maximumTemp);
               forecastTempEl.innerHTML = "Maximum_Temperature: " + maximumTemp +" 'C";
               forecastEls[i].append(forecastTempEl);
 
               const forecastHumidityEl = document.createElement("p");
-              forecastHumidityEl.innerHTML = "Humidity: " + response.list[i].main.humidity + "%";
+              forecastHumidityEl.innerHTML = "Humidity: " + response.list[i+1].main.humidity + "  %";
               forecastEls[i].append(forecastHumidityEl);
+
+                const forecastWindEl = document.createElement ("p");
+                forecastWindEl.innerHTML = "Wind: " + response.list[i+1].wind.speed + "  MPH";
+                forecastEls[i].append(forecastWindEl);
+
+
+
+
             }
           })
       });
@@ -146,6 +154,9 @@ console.log(response);
 
   function fahrenheitToCelsius(f) {
     return Math.floor((f - 32) * 5/9);
+  }
+  function kelvinToCelsius(k) {
+    return Math.floor (k - 273.15 );
   }
 
   function renderSearchHistory() {
