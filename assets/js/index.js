@@ -5,7 +5,7 @@ $(document).ready(function () {
   /**use the top area of the function to define the required variables*/
 
   /**create myAPIKey variable to equal the unique created API key from openweathermap.org */
-  let myAPIKey = "92d535d06ad57d90e707465ad6f59b22";
+  let myAPIKey = "7b2623f8c3d310870e521db852da3880";
   /**create variable cityEl to store city names retrieved by getting the value of the element(the input box) with the id of inputCity*/
   let cityEl = document.getElementById("inputCity");
   /**create variable searchEl to store ...........retrieved by getting the value of the element(the input box) with the id of searchBtn*/
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   let nameEl = document.getElementById("cityName");
 
-  let currentPicEl = document.getElementById("currentIMG");
+  let currentIMGEl = document.getElementById("currentIMG");
 
   let currentTempEl = document.getElementById("temperature");
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
   function getWeather(cityName) {
     // Execute a current weather get request from open weather api
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + myAPIKey;
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey}`;
     axios.get(queryURL)
         .then(function (response) {
         todaysWeatherEl.classList.remove("d-none");
@@ -47,13 +47,13 @@ $(document).ready(function () {
         const day = currentDate.getDate();
         const month = currentDate.getMonth() + 1;
         const year = currentDate.getFullYear();
-        nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
-        let weatherPic = response.data.weather[0].icon;
-        currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
-        currentPicEl.setAttribute("alt", response.data.weather[0].description);
+        nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
+        let weatherIMG = response.data.weather[0].icon;
+        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIMG + "@2x.png");
+        currentIMGEl.setAttribute("alt", response.data.weather[0].description);
         currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
         currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-        currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+        currentWindEl.innerHTML = "WindSpeed: " + response.data.wind.speed + " MPH";
 
         // Get UV Index
         let lat = response.data.coord.lat;
@@ -81,10 +81,10 @@ $(document).ready(function () {
 
         // Get 5 day forecast for this city
         let cityID = response.data.id;
-        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + myAPIKey;
+        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + MYAPIKey;
         axios.get(forecastQueryURL)
           .then(function (response) {
-            fivedayEl.classList.remove("d-none");
+            fiveDayEl.classList.remove("d-none");
 
             //  Parse response to display forecast for next 5 days
             const forecastEls = document.querySelectorAll(".forecast");
