@@ -96,11 +96,10 @@ console.log(response);
 
             //  Parse response to display forecast for next 5 days
             const forecastEls = document.querySelectorAll(".forecast");
-            for (i = 0; i < forecastEls.length; i++) {
+            for (i = 0; i < 6; i++) {
               forecastEls[i].innerHTML = "";
-              const forecastIndex = i * 8 + 4;
-              const forecastDate = moment().add(1,'days').format('D/MM/YYYY');
-              const forecastDay = moment().add(1,`days`).format("D");;
+              forecastDate = moment().add([i+1],'days').format('D/MM/YYYY');
+              const forecastDay = moment().add([i+1],`days`).format("D");;
               const forecastMonth = moment().format("MM");
               const forecastYear = moment().format("YYYY");
               const forecastDateEl = document.createElement("p");
@@ -110,14 +109,19 @@ console.log(response);
 
               // Icon for current weather
               const forecastWeatherEl = document.createElement("img");
-              $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[forecastIndex].weather[0].icon + "@2x.png");
-              $("forecastDate").attr("alt", response.list[forecastIndex].weather[0].description);
+              $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
+              $("forecastDate").attr("alt", response.list[i].weather[0].description);
               forecastEls[i].append(forecastWeatherEl);
               const forecastTempEl = document.createElement("p");
-              forecastTempEl.innerHTML = "Temp: " + fahrenheitToCelsius(response.list[forecastIndex].main.temp) + " &#176F";
+              
+              let maximumTemp = fahrenheitToCelsius(response.list[i].main.temp_max);
+              console.log(response.list[i].main.temp_max);
+              console.log("maximumTemp = ",maximumTemp);
+              forecastTempEl.innerHTML = "Maximum_Temperature: " + maximumTemp +" 'C";
               forecastEls[i].append(forecastTempEl);
+
               const forecastHumidityEl = document.createElement("p");
-              forecastHumidityEl.innerHTML = "Humidity: " + response.list[forecastIndex].main.humidity + "%";
+              forecastHumidityEl.innerHTML = "Humidity: " + response.list[i].main.humidity + "%";
               forecastEls[i].append(forecastHumidityEl);
             }
           })
