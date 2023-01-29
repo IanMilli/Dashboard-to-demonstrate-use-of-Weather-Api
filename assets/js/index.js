@@ -32,6 +32,7 @@ $(document).ready(function () {
   let todaysWeatherEl = document.getElementById("todaysWeather");
 
   let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+  let currentDate ="";
 
 
 
@@ -46,10 +47,10 @@ $(document).ready(function () {
 
         todaysWeatherEl.classList.remove("d-none");
         // Parse response to display current weather
-        const currentDate = new Date(response.data.dt * 1000);
-        const day = currentDate.getDate();
-        const month = currentDate.getMonth() + 1;
-        const year = currentDate.getFullYear();
+        currentDate = moment().format ('D/MM/YYYY'); 
+        let day = moment().format("D");
+        let month = moment().format("MM");
+        let year = moment().format("YYYY");
         nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
         let weatherIMG = response.data.weather[0].icon;
         currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIMG + "@2x.png");
