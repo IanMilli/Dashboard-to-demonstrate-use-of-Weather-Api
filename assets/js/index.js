@@ -114,7 +114,7 @@ function getToday() {
 }
 
 function getFiveDay() {
-  let apiFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,minutely,current&appid=${myAPIKey}&units=metric`
+  let apiFive = `https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${myAPIKey}`
   $.ajax({
     url: apiFive,
     method: "GET"
