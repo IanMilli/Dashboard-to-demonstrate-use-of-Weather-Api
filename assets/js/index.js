@@ -60,11 +60,13 @@ console.log(response);
         currentWindEl.innerHTML = "WindSpeed: " + response.wind.speed + " MPH";
 
         // Get UV Index
-        let lat = response.data.coord.lat;
-        let lon = response.data.coord.lon;
-        let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + myAPIKey + "&cnt=1";
-        axios.get(UVQueryURL)
-          .then(function (response) {
+        let cityLat = response.coord.lat;
+        let cityLon = response.coord.lon;
+        let UVQueryURL = `https://api.openweathermap.org/data/2.5/uvi/forecast?lat=${cityLat}&lon=${cityLon}&appid=${myAPIKey}&cnt=1`;
+        $.ajax({
+          url: UVQueryURL,
+          method: "GET"
+        }).then(function (response) {
             let UVIndex = document.createElement("span");
 
             // When UV Index is good, shows green, when ok shows yellow, when bad shows red
@@ -77,17 +79,19 @@ console.log(response);
             else {
               UVIndex.setAttribute("class", "badge badge-danger");
             }
-            console.log(response.data[0].value)
-            UVIndex.innerHTML = response.data[0].value;
+            console.log(response[0].value)
+            UVIndex.innerHTML = response[0].value;
             currentUVEl.innerHTML = "UV Index: ";
             currentUVEl.append(UVIndex);
           });
 
         // Get 5 day forecast for this city
-        let cityID = response.data.id;
-        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + MYAPIKey;
-        axios.get(forecastQueryURL)
-          .then(function (response) {
+        let cityID = response.id;
+        let fiveDayQueryURL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityID}&appid=${myAPIKey}`;
+        $.ajax({
+          url: fiveDayQueryURL,
+          method: "GET"
+        }).then(function (response)  {
             fiveDayEl.classList.remove("d-none");
 
             //  Parse response to display forecast for next 5 days
