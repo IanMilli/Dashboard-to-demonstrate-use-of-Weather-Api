@@ -40,7 +40,7 @@ $(document).ready(function () {
     // Execute a current weather get request from open weather api
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + myAPIKey;
     axios.get(queryURL)
-      .then(function (response) {
+        .then(function (response) {
         todaysWeatherEl.classList.remove("d-none");
         // Parse response to display current weather
         const currentDate = new Date(response.data.dt * 1000);
@@ -58,7 +58,7 @@ $(document).ready(function () {
         // Get UV Index
         let lat = response.data.coord.lat;
         let lon = response.data.coord.lon;
-        let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + MYAPIKey + "&cnt=1";
+        let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + myAPIKey + "&cnt=1";
         axios.get(UVQueryURL)
           .then(function (response) {
             let UVIndex = document.createElement("span");
@@ -81,7 +81,7 @@ $(document).ready(function () {
 
         // Get 5 day forecast for this city
         let cityID = response.data.id;
-        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + MYAPIKey;
+        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + myAPIKey;
         axios.get(forecastQueryURL)
           .then(function (response) {
             fivedayEl.classList.remove("d-none");
