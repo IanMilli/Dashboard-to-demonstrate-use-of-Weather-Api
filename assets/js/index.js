@@ -70,10 +70,10 @@ console.log(response);
             let UVIndex = document.createElement("span");
 
             // When UV Index is good, shows green, when ok shows yellow, when bad shows red
-            if (response.data[0].value < 4) {
+            if (response[0].value < 4) {
               UVIndex.setAttribute("class", "badge badge-success");
             }
-            else if (response.data[0].value < 8) {
+            else if (response[0].value < 8) {
               UVIndex.setAttribute("class", "badge badge-warning");
             }
             else {
@@ -99,25 +99,25 @@ console.log(response);
             for (i = 0; i < forecastEls.length; i++) {
               forecastEls[i].innerHTML = "";
               const forecastIndex = i * 8 + 4;
-              const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-              const forecastDay = forecastDate.getDate();
-              const forecastMonth = forecastDate.getMonth() + 1;
-              const forecastYear = forecastDate.getFullYear();
+              const forecastDate = moment().add(1,'days').format('D/MM/YYYY');
+              const forecastDay = moment().add(1,`days`).format("D");;
+              const forecastMonth = moment().format("MM");
+              const forecastYear = moment().format("YYYY");
               const forecastDateEl = document.createElement("p");
-              forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+              $("forecastDate").attr("class", "mt-3 mb-0 forecast-date");
               forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
               forecastEls[i].append(forecastDateEl);
 
               // Icon for current weather
               const forecastWeatherEl = document.createElement("img");
-              forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-              forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
+              $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[forecastIndex].weather[0].icon + "@2x.png");
+              $("forecastDate").attr("alt", response.list[forecastIndex].weather[0].description);
               forecastEls[i].append(forecastWeatherEl);
               const forecastTempEl = document.createElement("p");
-              forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
+              forecastTempEl.innerHTML = "Temp: " + fahrenheitToCelsius(response.list[forecastIndex].main.temp) + " &#176F";
               forecastEls[i].append(forecastTempEl);
               const forecastHumidityEl = document.createElement("p");
-              forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+              forecastHumidityEl.innerHTML = "Humidity: " + response.list[forecastIndex].main.humidity + "%";
               forecastEls[i].append(forecastHumidityEl);
             }
           })
