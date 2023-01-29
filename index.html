@@ -27,9 +27,10 @@
     <button type="submit" class="btn btn-primary mb-2" id="searchBtn" style="margin-left: 11.5vw;">Search
       Cities</button>
     <!--create a text input area for the user to enter the city name they wish to search for-->
-    <input type="text" class="form-control " id="inputCity" placeholder="Search">
+    <input type="text" class="form-control  " id="inputCity" placeholder="Search">
     <!--create area to show previous searches by the user-->
-    <ul id="pastSearches" class="list-group p-2 row"></ul>
+    <ul id="clearSearch" class="list-group p-2 row"></ul>
+    <form id="history"></form>
     <!--create a button to clear previous searches by the user-->
     <button type="button" id="clear" class="btn bg-danger text-white mb-2" style="margin-left: 10vw;">Clear Past
       Searches</button>
@@ -39,14 +40,14 @@
   </div>
   <div class="col-lg-9">
     <div class="row mr-0">
-      <div class="col-lg-11 card m-3 d-none" id="today-weather">
+      <div class="col-lg-11 card m-3 d-none" id="todayWeather">
         <div class="card-body">
-          <h3 id="city-name" class="city-name align-middle"></h3>
-          <img id="current-pic" alt="">
+          <h3 id="cityName" class="cityName align-middle"></h3>
+          <img id="currentIMG" alt="">
           <p id="temperature"></p>
           <p id="humidity"></p>
-          <p id="wind-speed"></p>
-          <p id="UV-index"></p>
+          <p id="windSpeed"></p>
+          <p id="UVIndex"></p>
         </div>
       </div>
     </div>
