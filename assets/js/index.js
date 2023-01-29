@@ -182,7 +182,7 @@ function decodeUV() {
       savedCities = storedCities;
       renderCities();
     } else {
-      city = "San Diego"
+      city = ""
       checkPast();
     }
   }
