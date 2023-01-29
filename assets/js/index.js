@@ -53,11 +53,11 @@ console.log(response);
         let year = moment().format("YYYY");
         nameEl.innerHTML = response.name + " (" + day + "/" + month + "/" + year + ") ";
       //  let weatherIMG = response.main.weather[0].icon;
-        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + /*weatherIMG +*/ "@2x.png");
-        currentIMGEl.setAttribute("alt", response.data.weather[0].description);
-        currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
-        currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-        currentWindEl.innerHTML = "WindSpeed: " + response.data.wind.speed + " MPH";
+        //currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + /*weatherIMG +*/ "@2x.png");
+        //currentIMGEl.setAttribute("alt", response.data.weather[0].description);//
+        currentTempEl.innerHTML = "Temperature: " + fahrenheitToCelsius(response.main.temp) + " 'C";
+        currentHumidityEl.innerHTML = "Humidity: " + response.main.humidity + "%";
+        currentWindEl.innerHTML = "WindSpeed: " + response.wind.speed + " MPH";
 
         // Get UV Index
         let lat = response.data.coord.lat;
@@ -136,8 +136,8 @@ console.log(response);
     renderSearchHistory();
   })
 
-  function k2f(K) {
-    return Math.floor((K - 273.15) * 1.8 + 32);
+  function fahrenheitToCelsius(f) {
+    return Math.floor((f - 32) * 5/9);
   }
 
   function renderSearchHistory() {
