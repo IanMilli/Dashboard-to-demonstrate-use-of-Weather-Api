@@ -5,7 +5,7 @@ $(document).ready(function () {
   /**use the top area of the function to define the required variables*/
 
   /**create myAPIKey variable to equal the unique created API key from openweathermap.org */
-  let myAPIKey = "7b2623f8c3d310870e521db852da3880";
+  let myAPIKey = "92d535d06ad57d90e707465ad6f59b22";
   /**create variable cityEl to store city names retrieved by getting the value of the element(the input box) with the id of inputCity*/
   let cityEl = document.getElementById("inputCity");
   /**create variable searchEl to store ...........retrieved by getting the value of the element(the input box) with the id of searchBtn*/
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
   function getWeather(cityName) {
     // Execute a current weather get request from open weather api
-    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey};`
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey}`;
     $.ajax({
       url: queryURL,
       method: "GET"
