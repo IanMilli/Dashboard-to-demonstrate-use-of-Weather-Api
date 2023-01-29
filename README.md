@@ -71,8 +71,9 @@ https://getbootstrap.com/docs/4.3/utilities/sizing/ - sizing guide for bootstrap
 netinformation.com
 http://net-informations.com/jq/iq/onload.htm#:~:text=The%20key%20difference%20between%20%24%20%28document%29.ready%20%28%29%20and,but%20after%20the%20whole%20DOM%20itself%20is%20ready.
 
-understanding which is bvetter to use window.load or document.ready
-
+understanding which is better to use window.load or document.ready
+openweathermap.org
+https://openweathermap.org/forecast5#5days
 ## License
 
 The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
