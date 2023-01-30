@@ -112,6 +112,12 @@ console.log(response);
             //  $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
             //  $("forecastDate").attr("alt", response[i+1].weather[0].description);
             //  forecastEls[i].append(forecastWeatherEl);
+            const forecastTempMinEl = document.createElement("p");
+            let minimumTemp = kelvinToCelsius(response.list[i+1].main.temp_min);
+            console.log(response.list[i+1].main.temp_min);
+            console.log("minimumTemp = ",minimumTemp);
+            forecastTempMinEl.innerHTML = "Minimum Temperature: " + minimumTemp +" 'C";
+            forecastEls[i].append(forecastTempMinEl);
 
               const forecastTempEl = document.createElement("p");
               let maximumTemp = kelvinToCelsius(response.list[i+1].main.temp_max);
@@ -150,6 +156,8 @@ console.log(response);
     localStorage.clear();
     searchHistory = [];
     renderSearchHistory();
+    fiveDayEl.classList.add("d-none");
+    todaysWeatherEl.classList.remove("d-none");
   })
 
   function fahrenheitToCelsius(f) {

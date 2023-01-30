@@ -14,35 +14,31 @@
 </head>
 
 <body>
-  <!--jumbotron to provide area for title and input section for the search button-->
-  <div class="jumbotron jumbotron-fluid ">
-  </div>
-  <h1 class="display-4 text-center">Weather Dashboard</h1>
-  <p class="lead text-center"> Author: Ian Millichamp</p>
-  </div>
-  <p class="text-center" ;>This is a simple Weather Dashboard, use the input box to select a city you need up
-    to-date weather information for and click search.</p>
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-3 bg-light">
-              <h5 class="mt-1">Search for a City:</h5>
-              <div class="input-group mb-3">
-                  <input id="inputCity" type="text" class="form-control" placeholder="Enter a city" aria-label="Enter a city">
-                  <div class="input-group-append">
-                      <button class="btn btn-primary" type="button" id="searchBtn">
-                          <i class="fas fa-search"></i>
-                      </button>
-                  </div>
-              </div>
-              <button class="btn btn-primary mb-3" type="button" id="clearSearch">Clear history</button>
-              <form id="history"></form>
-          </div>
 
-  </div>
-  </div>
-  <div class="col-lg-9">
-    <div class="row mr-0">
-      <div class="col-lg-11 card m-3 d-none" id="todaysWeather">
+  <div div class="container row mx-auto mt-3">
+    <div class="card title " style="width: 40vw;height:30vw;">
+      <div class="card-body ">
+        <h1 class="card-title text-center">Weather Dashboard</h1>
+        <p  class="lead text-center"> Author: Ian Millichamp</p>
+        <p class="text-center">This is a simple Weather Dashboard, </p>
+        <p class="text-center">Use the input box to select a city you need current weather information </p>
+        <p class="text-center">and click the Search Cities button.</p>
+      </div>
+      <div class="card searchBox  mx-auto text-center mb-2" style="width: 27vw;">
+        <div class="card-body">
+          <h5 class="card-title">Search for a City:</h5>
+          <div class="row">
+            <input id="inputCity" type="text" class="form-control " style="width:18vw;" placeholder="Enter a city"
+              aria-label="Enter a city">
+            <button class="btn btn-primary mx-auto mb-1" type="button" id="searchBtn"> Search Cities<i
+                class="fas fa-search"></i></button>
+          </div>
+          <button class="btn btn-danger mx-auto mt-3" type="button" id="clearSearch">Clear Search History</button>
+        </div>
+      </div>
+    </div>
+    <div class="row ml-5 "id="todaysWeatherBox">
+      <div class="card d-none text-center" id="todaysWeather" style="width:24vw; height:30vw;">
         <div class="card-body">
           <h3 id="cityName" class="cityName align-middle"></h3>
           <img id="currentIMG" alt="">
@@ -51,24 +47,32 @@
           <p id="windSpeed"></p>
           <p id="UVIndex"></p>
         </div>
+        <button class="btn btn-dark text-centre mx-auto b-3" type="button" id="history"></button>
       </div>
     </div>
-    <div class="row d-none" id="fiveDay">
-      <div class="col-12">
-        <h3>5-Day Forecast</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2 forecast forecastTemp bg-primary text-white m-2 rounded"></div>
-      <div class="col-md-2 forecast forecastTemp bg-primary text-white m-2 rounded"></div>
-      <div class="col-md-2 forecast forecastTemp bg-primary text-white m-2 rounded"></div>
-      <div class="col-md-2 forecast forecastTemp bg-primary text-white m-2 rounded"></div>
-      <div class="col-md-2 forecast forecastTemp bg-primary text-white m-2 rounded"></div>
-    </div>
   </div>
-  </div>
-  </div>
+  
+     
+   
 
+  <div class="card title " style="width: 83vw;height:20vw;margin-top: 1vw;margin-left: 10vw;">
+    <div class="card-body ">
+      <div class="row d-none text-center" id="fiveDay">
+        <div class="col-12 text-centre">
+          <h3>5-Day Forecast</h3>
+        </div>
+      </div>
+      <div class="row ml-5">
+        <div class="text-center forecast forecastTemp bG1 text-white m-2 rounded" style="width:14vw;"></div>
+        <div class="text-center forecast forecastTemp bG2 text-white m-2 rounded" style="width:14vw;"></div>
+        <div class="text-center forecast forecastTemp bG3 text-white m-2 rounded" style="width:14vw;"></div>
+        <div class="text-center forecast forecastTemp bG4 text-white m-2 rounded" style="width:14vw;" ></div>
+        <div class="text-center forecast forecastTemp bg-primary text-white m-2 rounded" style="width:14vw;"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
   <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <!-- jQuery -->
