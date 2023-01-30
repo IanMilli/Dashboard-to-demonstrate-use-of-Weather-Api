@@ -15,13 +15,16 @@ The following criteria are required to be met for the project to be viewed as co
     * The date
     * An icon representation of weather conditions
     * The temperature
+    The Pressure
     * The humidity
     * The wind speed
 * When a user views future weather conditions for that city they are presented with a 5-day forecast that displays:
     * The date
     * An icon representation of weather conditions
     * The temperature
+    * The Pressure
     * The humidity
+    * The Wind Speed
 * When a user click on a city in the search history they are again presented with current and future conditions for that city
 
 
