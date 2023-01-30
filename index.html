@@ -15,8 +15,8 @@
 
 <body>
 
-  <div div class="container row ml-5 mt-3">
-    <div class="card title " style="width: 40vw;height:30vw;">
+  <div div class="container row mx-auto mt-3">
+    <div class="card title " style="width: 28vw;height:30vw;">
       <div class="card-body ">
         <h1 class="card-title text-center">Weather Dashboard</h1>
         <p  class="lead text-center"> Author: Ian Millichamp</p>
@@ -37,22 +37,23 @@
         </div>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+    <div class="card hBox ml-5" style="width: 18vw; height:30vw;">
+      <div class="card-body text-center">
+        <h5 class="card-title">Search History</h5>
+        <p class="card-text">Click on the below displayed city buttons to view previously searched Cities</p>
         <button class="btn btn-dark text-centre mx-auto b-3" type="button" id="history"></button>
+        <p class="card-text">Click below to remove your search history</p>
         <button class="btn btn-danger mx-auto mt-3" type="button" id="clearSearch">Clear Search History</button>
       </div>
-    </div>
-
+    
+  </div>
 
 
 
 
     <div class="row ml-5 "id="todaysWeatherBox">
-      <div class="card d-none text-center" id="todaysWeather" style="width:24vw; height:30vw;">
+      <div class="card d-none text-center" id="todaysWeather" style="width:18vw; height:30vw;">
         <div class="card-body">
           <h3 id="cityName" class="cityName align-middle"></h3>
           <img id="currentIMG" alt="">
