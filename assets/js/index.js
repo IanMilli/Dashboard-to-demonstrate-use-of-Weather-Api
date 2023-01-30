@@ -38,6 +38,7 @@ $(document).ready(function () {
   let currentDayTimeText = $("<h2>");
   let currentDayTime = $(".currentDayTime");
 
+  /** create a function that will display the current date and time for the user */
   setInterval(
     function () {
             currentDayTimeText.text(moment().format("dddd, MMMM Do, YYYY H:mm:ss a"));
@@ -45,14 +46,21 @@ $(document).ready(function () {
 
     }, 1000);
 
-
+/**create function to get the weather relating to a particular city name */
   function getWeather(cityName) {
-    // Execute a current weather get request from open weather api
+    /*Execute a current weather get request from openweathermap.org using the ajax approach
+    first make the variable queryURL equal the url address for the api specifiying that the request is based on the cities name and includes the apiKey generated for the app*/
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${myAPIKey}`;
+    /**call the ajax function to follow the url specified in the variable queryURL and "get" the information which comes as a 'response'
+     * then run a function based on the response array created by the request.
+     */
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
+/**console log the response to understand what information you have got back from the api server following the request to it.
+ * so basically we have asked for info, we have been sent info based on our specific request and now we can have a look at that answer
+ */
 console.log(response);
         todaysWeatherEl.classList.remove("d-none");
         // Parse response to display current weather
