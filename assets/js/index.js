@@ -114,24 +114,25 @@ console.log(response);
               forecastDateEl.innerHTML = forecastDay + "/" + forecastMonth + "/" + forecastYear;
               forecastEls[i].append(forecastDateEl);
 
-              // Icon for current weather
-             // const forecastWeatherEl = document.createElement("img");
-            //  $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
-            //  $("forecastDate").attr("alt", response[i+1].weather[0].description);
-            //  forecastEls[i].append(forecastWeatherEl);
-            const forecastTempMinEl = document.createElement("p");
-            let minimumTemp = kelvinToCelsius(response.list[i+1].main.temp_min);
-            console.log(response.list[i+1].main.temp_min);
-            console.log("minimumTemp = ",minimumTemp);
-            forecastTempMinEl.innerHTML = "Minimum Temperature: " + minimumTemp +" 'C";
+              // Icon for forecast weather
+              //const forecastWeatherEl = document.createElement("img");
+              //forecastWeatherEl.setAttribute("src=", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
+          // forecastWeatherEl.setAttribute("alt=", response[i+1].weather[0].description);
+           //   forecastEls[i].append(forecastWeatherEl);
+             
+          
+            
+
+            let forecastTempMinEl = document.createElement("p");
+            let fTemp = kelvinToCelsius(response.list[i+1].main.temp);
+            console.log("data list for min temp",response.list[i+1].main.temp);
+            console.log("Temp = ",fTemp);
+            forecastTempMinEl.innerHTML = "Temperature: " + fTemp +" 'C";
             forecastEls[i].append(forecastTempMinEl);
 
-              const forecastTempEl = document.createElement("p");
-              let maximumTemp = kelvinToCelsius(response.list[i+1].main.temp_max);
-              console.log(response.list[i+1].main.temp_max);
-              console.log("maximumTemp = ",maximumTemp);
-              forecastTempEl.innerHTML = "Maximum_Temperature: " + maximumTemp +" 'C";
-              forecastEls[i].append(forecastTempEl);
+            const forecastPressureEl = document.createElement ("p");
+            forecastPressureEl.innerHTML = "Pressure: " + response.list[i+1].main.pressure + "  mbar";
+            forecastEls[i].append(forecastPressureEl);
 
               const forecastHumidityEl = document.createElement("p");
               forecastHumidityEl.innerHTML = "Humidity: " + response.list[i+1].main.humidity + "  %";
