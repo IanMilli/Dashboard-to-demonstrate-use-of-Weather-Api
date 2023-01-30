@@ -100,11 +100,11 @@ console.log(response);
               forecastEls[i].innerHTML = "";
               forecastDate = moment().add([i+1],'days').format('D/MM/YYYY');
               const forecastDay = moment().add([i+1],`days`).format("D");;
-              const forecastMonth = moment().format("MM");
-              const forecastYear = moment().format("YYYY");
+              const forecastMonth = moment().add([i+1]).format("MM");
+              const forecastYear = moment().add([i]).format("YYYY");
               const forecastDateEl = document.createElement("p");
               $("forecastDate").attr("class", "mt-3 mb-0 forecast-date");
-              forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+              forecastDateEl.innerHTML = forecastDay + "/" + forecastMonth + "/" + forecastYear;
               forecastEls[i].append(forecastDateEl);
 
               // Icon for current weather
