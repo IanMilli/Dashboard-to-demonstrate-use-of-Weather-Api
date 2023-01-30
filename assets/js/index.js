@@ -33,8 +33,15 @@ $(document).ready(function () {
 
   let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
   let currentDate ="";
+  let currentDayTimeText = $("<h2>");
+  let currentDayTime = $(".currentDayTime");
 
+  setInterval(
+    function () {
+            currentDayTimeText.text(moment().format("dddd, MMMM Do, YYYY H:mm:ss a"));
+            currentDayTime.append(currentDayTimeText);
 
+    }, 1000);
 
 
   function getWeather(cityName) {
