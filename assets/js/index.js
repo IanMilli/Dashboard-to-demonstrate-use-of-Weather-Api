@@ -115,10 +115,10 @@ console.log(response);
               forecastEls[i].append(forecastDateEl);
 
               // Icon for forecast weather
-          //    const forecastWeatherEl = document.createElement("img");
-          //    forecastWeatherEl.setAttribute("src=", "https://openweathermap.org/img/wn/" + response.list[i+1].weather[0].icon + "@2x.png");
-         //  forecastWeatherEl.setAttribute("alt=", response[i+1].weather[0].description);
-             // forecastEls[i].append(forecastWeatherEl);
+           const forecastWeatherEl = document.createElement("img");
+            forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.list[i+1].weather[0].icon + "@2x.png");
+          forecastWeatherEl.setAttribute("alt", response.list[i+1].weather[0].description);
+              forecastEls[i].append(forecastWeatherEl);
          
             let forecastTempMinEl = document.createElement("p");
             let fTemp = kelvinToCelsius(response.list[i+1].main.temp);
