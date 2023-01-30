@@ -52,9 +52,9 @@ console.log(response);
         let month = moment().format("MM");
         let year = moment().format("YYYY");
         nameEl.innerHTML = response.name + " (" + day + "/" + month + "/" + year + ") ";
-      //  let weatherIMG = response.main.weather[0].icon;
-        //currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + /*weatherIMG +*/ "@2x.png");
-        //currentIMGEl.setAttribute("alt", response.data.weather[0].description);//
+      let weatherIMG = response.weather[0].icon;
+        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIMG + "@2x.png");
+        currentIMGEl.setAttribute("alt", response.weather[0].description);
         currentTempEl.innerHTML = "Temperature: " + fahrenheitToCelsius(response.main.temp) + " 'C";
         currentHumidityEl.innerHTML = "Humidity: " + response.main.humidity + "%";
         currentWindEl.innerHTML = "WindSpeed: " + response.wind.speed + " MPH";
