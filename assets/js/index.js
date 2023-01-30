@@ -156,8 +156,8 @@ console.log(response);
     localStorage.clear();
     searchHistory = [];
     renderSearchHistory();
-    fiveDayEl.classList.add("d-none");
-    todaysWeatherEl.classList.remove("d-none");
+  
+    window.location.reload();
   })
 
   function fahrenheitToCelsius(f) {
