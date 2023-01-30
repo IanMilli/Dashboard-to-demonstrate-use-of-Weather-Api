@@ -19,6 +19,8 @@ $(document).ready(function () {
 
   let currentTempEl = document.getElementById("temperature");
 
+  let currentPressureEl = document.getElementById("pressure");
+
   let currentHumidityEl = document.getElementById("humidity");
 
   let currentWindEl = document.getElementById("windSpeed");
@@ -33,8 +35,15 @@ $(document).ready(function () {
 
   let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
   let currentDate ="";
+  let currentDayTimeText = $("<h2>");
+  let currentDayTime = $(".currentDayTime");
 
+  setInterval(
+    function () {
+            currentDayTimeText.text(moment().format("dddd, MMMM Do, YYYY H:mm:ss a"));
+            currentDayTime.append(currentDayTimeText);
 
+    }, 1000);
 
 
   function getWeather(cityName) {
@@ -52,10 +61,11 @@ console.log(response);
         let month = moment().format("MM");
         let year = moment().format("YYYY");
         nameEl.innerHTML = response.name + " (" + day + "/" + month + "/" + year + ") ";
-      //  let weatherIMG = response.main.weather[0].icon;
-        //currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + /*weatherIMG +*/ "@2x.png");
-        //currentIMGEl.setAttribute("alt", response.data.weather[0].description);//
+      let weatherIMG = response.weather[0].icon;
+        currentIMGEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIMG + "@2x.png");
+        currentIMGEl.setAttribute("alt", response.weather[0].description);
         currentTempEl.innerHTML = "Temperature: " + fahrenheitToCelsius(response.main.temp) + " 'C";
+        currentPressureEl.innerHTML = "Pressure: " + response.main.pressure + " mbar";
         currentHumidityEl.innerHTML = "Humidity: " + response.main.humidity + "%";
         currentWindEl.innerHTML = "WindSpeed: " + response.wind.speed + " MPH";
 
@@ -99,26 +109,27 @@ console.log(response);
             for (i = 0; i < 6; i++) {
               forecastEls[i].innerHTML = "";
               forecastDate = moment().add([i+1],'days').format('D/MM/YYYY');
-              const forecastDay = moment().add([i+1],`days`).format("D");;
-              const forecastMonth = moment().format("MM");
-              const forecastYear = moment().format("YYYY");
               const forecastDateEl = document.createElement("p");
               $("forecastDate").attr("class", "mt-3 mb-0 forecast-date");
-              forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+              forecastDateEl.innerHTML = forecastDate;
               forecastEls[i].append(forecastDateEl);
 
-              // Icon for current weather
-             // const forecastWeatherEl = document.createElement("img");
-            //  $("forecastDate").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
-            //  $("forecastDate").attr("alt", response[i+1].weather[0].description);
-            //  forecastEls[i].append(forecastWeatherEl);
+              // Icon for forecast weather
+          //    const forecastWeatherEl = document.createElement("img");
+          //    forecastWeatherEl.setAttribute("src=", "https://openweathermap.org/img/wn/" + response.list[i+1].weather[0].icon + "@2x.png");
+         //  forecastWeatherEl.setAttribute("alt=", response[i+1].weather[0].description);
+             // forecastEls[i].append(forecastWeatherEl);
+         
+            let forecastTempMinEl = document.createElement("p");
+            let fTemp = kelvinToCelsius(response.list[i+1].main.temp);
+            console.log("data list for min temp",response.list[i+1].main.temp);
+            console.log("Temp = ",fTemp);
+            forecastTempMinEl.innerHTML = "Temperature: " + fTemp +" 'C";
+            forecastEls[i].append(forecastTempMinEl);
 
-              const forecastTempEl = document.createElement("p");
-              let maximumTemp = kelvinToCelsius(response.list[i+1].main.temp_max);
-              console.log(response.list[i+1].main.temp_max);
-              console.log("maximumTemp = ",maximumTemp);
-              forecastTempEl.innerHTML = "Maximum_Temperature: " + maximumTemp +" 'C";
-              forecastEls[i].append(forecastTempEl);
+            const forecastPressureEl = document.createElement ("p");
+            forecastPressureEl.innerHTML = "Pressure: " + response.list[i+1].main.pressure + "  mbar";
+            forecastEls[i].append(forecastPressureEl);
 
               const forecastHumidityEl = document.createElement("p");
               forecastHumidityEl.innerHTML = "Humidity: " + response.list[i+1].main.humidity + "  %";
@@ -150,6 +161,8 @@ console.log(response);
     localStorage.clear();
     searchHistory = [];
     renderSearchHistory();
+  
+    window.location.reload();
   })
 
   function fahrenheitToCelsius(f) {

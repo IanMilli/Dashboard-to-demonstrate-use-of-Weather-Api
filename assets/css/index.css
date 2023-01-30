@@ -1,9 +1,56 @@
 body {
- background-color: rgb(55, 204, 249);
-}
+ 
 
-.jumbotron {
-    background-image: url(../images/background/jumbotron-bg.jpg);
+    background-image: url(../images/background/background\ card\ image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+
+}
+.title { 
+    background-image: url(../images/background/background\ 3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.3vw solid navy;
+   
+}
+.title1 { 
+    background-image: url(../images/background/background\ 4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.3vw solid navy;
+   
+}
+
+.searchBox {
+    background-image: url(../images/background/background\ 5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hBox {
+    background-image: url(../images/background/background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.3vw solid black;
+
+}
+.title2 {
+    background-image: url(../images/background/background\ 3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.3vw solid navy;
+}
+
+
+.bG1 {
+    background-color: rgb(152, 188, 250);
+}
+.bG2 {
+    background-color: rgb(112, 160, 242);
+}
+.bG3 {
+    background-color: rgb(80, 143, 252);
+}
+.bG4 {
+    background-color: rgb(31, 113, 255);
 }
