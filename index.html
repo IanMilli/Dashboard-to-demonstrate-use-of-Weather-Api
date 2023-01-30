@@ -16,7 +16,7 @@
 <body>
 
   <div div class="container row mx-auto mt-3">
-    <div class="card title " style="width: 28vw;height:30vw;">
+    <div class="card title " style="width: 30vw;height:30vw;">
       <div class="card-body ">
         <h1 class="card-title text-center">Weather Dashboard</h1>
         <p  class="lead text-center"> Author: Ian Millichamp</p>
@@ -53,8 +53,8 @@
 
 
     <div class="row ml-5 "id="todaysWeatherBox">
-      <div class="card d-none text-center" id="todaysWeather" style="width:18vw; height:30vw;">
-        <div class="card-body">
+      <div class="card title2 d-none text-center" id="todaysWeather" style="width:18vw; height:30vw;">
+        <div class="card-body ">
           <h3 id="cityName" class="cityName align-middle"></h3>
           <img id="currentIMG" alt="">
           <p id="temperature"></p>
@@ -62,17 +62,19 @@
           <p id="windSpeed"></p>
           <p id="UVIndex"></p>
         </div>
+
+      
        
       </div>
     </div>
   </div>
-  
+ 
      
    
 
-  <div class="card title " style="width: 83vw;height:20vw;margin-top: 1vw;margin-left: 10vw;">
+  <div class="card title1" style="width: 83vw;height:20vw;margin-top: 1vw;margin-left: 10vw;">
     <div class="card-body ">
-      <div class="row d-none text-center" id="fiveDay">
+      <div class="row d-none  text-center" id="fiveDay">
         <div class="col-12 text-centre">
           <h3>5-Day Forecast</h3>
         </div>
@@ -88,6 +90,9 @@
   </div>
   </div>
   </div>
+  <footer class="mt-5 text-center">
+Weather Dashboard Created 2023 by Ian Millichamp
+  </footer>
   <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <!-- jQuery -->
