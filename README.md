@@ -55,7 +55,18 @@ If the user wishes to clear their search history they can do so by clicking 'cle
 
 ## Screenshots
 
+* The first page the user sees [Welcome Page](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/welcome%20page.png).
+   * The search for weather data on the city [Blackpool, UK](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/blackpool%20search.png).
+   * The search for weather data on the city [Anchorage, USA](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/anchorage%20search.png).
+    * The search for weather data on the city Edinburgh, UK](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/edinburgh.png).
+     * The search for weather data on the city [Las Vegas, USA](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/las%20vegas%20search.png).
+     * The search for weather data on the city [Wellington, NZ](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/wellington%20search.png).
+     * The screen shown once the clear button is [clicked](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/search%20button%20clicked.png).
+    
+    
 ## Credits
+
+
 
 Author Ian Millichamp
 
