@@ -9,53 +9,51 @@ The search history for the user will be retained until such time as the user cle
 The following criteria are required to be met for the project to be viewed as completed:
 
 * A weather dashboard with form inputs.
-* When a user searches for a city they are presented with current and future conditions for that city and that city is added to the search history
-* When a user views the current weather conditions for that city they are presented with:
+    * When a user searches for a city they are presented with current and future conditions for that city and that city is added to the   search history
+    * When a user views the current weather conditions for that city they are presented with:
     * The city name
     * The date
     * An icon representation of weather conditions
     * The temperature
-    The Pressure
+    * The Pressure
     * The humidity
     * The wind speed
-* When a user views future weather conditions for that city they are presented with a 5-day forecast that displays:
+    * When a user views future weather conditions for that city they are presented with a 5-day forecast that displays:
     * The date
     * An icon representation of weather conditions
     * The temperature
     * The Pressure
     * The humidity
     * The Wind Speed
-* When a user click on a city in the search history they are again presented with current and future conditions for that city
+    * When a user click on a city in the search history they are again presented with current and future conditions for that city
 
 
-## Table of Contents (Optional)
+## Table of Contents 
 
 
-The acceptance criteria for this project to be complete is
-
-If your README is very long, add a table of contents to make it easy for users to find what they need.
-
-* [Installation](#installation)
+* [Links](#links)
 * [Usage](#usage)
+* [Screenshots](#screenshots)
 * [Credits](#credits)
 * [License](#license)
 
 
-## Installation
+## Links
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To view this application please click the following link: [Deployed Application](https://ianmilli.github.io/Week-8-Weather-API-Dashboard/).
 
-
+to view the repository for this application please click the following link: [Repository](https://github.com/IanMilli/Week-8-Weather-API-Dashboard).
 ## Usage 
 
-Provide instructions and examples for use. Include screenshots as needed. 
+To use the website the user will need to go to the deployed application, a link for which can be found under the [Links](#links) section of the readme file.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Once the user views the website they can add their city that they require into the input box labeled 'enter a city' they then click on the 'search cities' button. 
 
-```md
-![alt text](assets/images/screenshot.png)
-```
+A box to the right of the page will display the current data for the entered city if it exists and a box underneath will be populated with the five day forecast for that city going forward. Simultaneously a button will appear in the search history for the requested city.
 
+If the user wishes to clear their search history they can do so by clicking 'clear search history'
+
+## Screenshots
 
 ## Credits
 
@@ -79,29 +77,24 @@ openweathermap.org
 https://openweathermap.org/forecast5#5days
 ## License
 
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
+Copyright (c) 2023 IanMilli
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
----
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-## Contributing
-
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
