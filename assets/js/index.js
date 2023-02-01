@@ -146,21 +146,23 @@ $(document).ready(function () {
         url: fiveDayQueryURL,
         method: "GET"
       }).then(function (response) {
-        /*remove the d-none class from the fivedays element*/
+        /*remove the d-none class from the five days element to reveal the cards to display the next five days of information in*/
         fiveDayEl.classList.remove("d-none");
 
-        //  Parse response to display forecast for next 5 days
-        const forecastEls = document.querySelectorAll(".forecast");
+        /*  Parse the api response to display the forecast for the next 5 days using a for loop*/
+
+      let forecastEls = document.querySelectorAll(".forecast");
+
         for (i = 0; i < 6; i++) {
           forecastEls[i].innerHTML = "";
           forecastDate = moment().add([i + 1], 'days').format('D/MM/YYYY');
-          const forecastDateEl = document.createElement("p");
+          let forecastDateEl = document.createElement("p");
           $("forecastDate").attr("class", "mt-3 mb-0 forecast-date");
           forecastDateEl.innerHTML = forecastDate;
           forecastEls[i].append(forecastDateEl);
 
           // Icon for forecast weather
-          const forecastWeatherEl = document.createElement("img");
+          let forecastWeatherEl = document.createElement("img");
           forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.list[i + 1].weather[0].icon + "@2x.png");
           forecastWeatherEl.setAttribute("alt", response.list[i + 1].weather[0].description);
           forecastEls[i].append(forecastWeatherEl);
@@ -172,47 +174,46 @@ $(document).ready(function () {
           forecastTempMinEl.innerHTML = "Temperature: " + fTemp + " 'C";
           forecastEls[i].append(forecastTempMinEl);
 
-          const forecastPressureEl = document.createElement("p");
+          let forecastPressureEl = document.createElement("p");
           forecastPressureEl.innerHTML = "Pressure: " + response.list[i + 1].main.pressure + "  mbar";
           forecastEls[i].append(forecastPressureEl);
 
-          const forecastHumidityEl = document.createElement("p");
+          let forecastHumidityEl = document.createElement("p");
           forecastHumidityEl.innerHTML = "Humidity: " + response.list[i + 1].main.humidity + "  %";
           forecastEls[i].append(forecastHumidityEl);
 
-          const forecastWindEl = document.createElement("p");
+          let forecastWindEl = document.createElement("p");
           forecastWindEl.innerHTML = "Wind: " + response.list[i + 1].wind.speed + "  MPH";
           forecastEls[i].append(forecastWindEl);
-
-
-
 
         }
       })
     });
   }
+/**this ends the big giant function that operates on page load */
 
-  // Get history from local storage if any
+  /* create a event listener for when the user clicks on the search Cities button*/
   searchEl.addEventListener("click", function () {
-    const searchTerm = cityEl.value;
+    let searchTerm = cityEl.value;
     getWeather(searchTerm);
     searchHistory.push(searchTerm);
     localStorage.setItem("search", JSON.stringify(searchHistory));
     renderSearchHistory();
   })
 
-  // Clear History button
+  /* create an event listener for when the user clicks on the clear search history button*/ 
   clearEl.addEventListener("click", function () {
     localStorage.clear();
     searchHistory = [];
     renderSearchHistory();
-
+/**use window.location.reload to reset the page and ensure the page knows local storage is cleared */
     window.location.reload();
   })
-
+/**use this function to convert from fahrenheit to celsius */
   function fahrenheitToCelsius(f) {
     return Math.floor((f - 32) * 5 / 9);
   }
+  /**use this function to convert from kelvin to celsius */
   function kelvinToCelsius(k) {
     return Math.floor(k - 273.15);
   }
@@ -221,9 +222,9 @@ $(document).ready(function () {
     historyEl.innerHTML = "";
     for (let i = 0; i < searchHistory.length; i++) {
       const historyItem = document.createElement("input");
-      historyItem.setAttribute("type", "text");
+      historyItem.setAttribute("type", "button");
       historyItem.setAttribute("readonly", true);
-      historyItem.setAttribute("class", "form-control d-block bg-white");
+      historyItem.setAttribute("class", "form-control d-block bg-primary mb-1 text-white text-center");
       historyItem.setAttribute("value", searchHistory[i]);
       historyItem.addEventListener("click", function () {
         getWeather(historyItem.value);
