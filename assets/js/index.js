@@ -152,7 +152,8 @@ $(document).ready(function () {
         /*  Parse the api response to display the forecast for the next 5 days using a for loop*/
 
       let forecastEls = document.querySelectorAll(".forecast");
-
+/**set the for loop to have a length between 0 and 6 (have attempted to adjust i to start at 1 (next days info after current day (tomorrow) but my functions did not like it so had 
+ * to revert to using [i+1] throughout to get the information i needed) */
         for (i = 0; i < 6; i++) {
           forecastEls[i].innerHTML = "";
           forecastDate = moment().add([i + 1], 'days').format('D/MM/YYYY');
@@ -161,27 +162,27 @@ $(document).ready(function () {
           forecastDateEl.innerHTML = forecastDate;
           forecastEls[i].append(forecastDateEl);
 
-          // Icon for forecast weather
+          /**get the weather icon for each day */
           let forecastWeatherEl = document.createElement("img");
           forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.list[i + 1].weather[0].icon + "@2x.png");
           forecastWeatherEl.setAttribute("alt", response.list[i + 1].weather[0].description);
           forecastEls[i].append(forecastWeatherEl);
-
+/**get the temp for each day */
           let forecastTempMinEl = document.createElement("p");
           let fTemp = kelvinToCelsius(response.list[i + 1].main.temp);
           console.log("data list for min temp", response.list[i + 1].main.temp);
           console.log("Temp = ", fTemp);
           forecastTempMinEl.innerHTML = "Temperature: " + fTemp + " 'C";
           forecastEls[i].append(forecastTempMinEl);
-
+/**get the pressure for each day */
           let forecastPressureEl = document.createElement("p");
           forecastPressureEl.innerHTML = "Pressure: " + response.list[i + 1].main.pressure + "  mbar";
           forecastEls[i].append(forecastPressureEl);
-
+/**get the humidity for each day */
           let forecastHumidityEl = document.createElement("p");
           forecastHumidityEl.innerHTML = "Humidity: " + response.list[i + 1].main.humidity + "  %";
           forecastEls[i].append(forecastHumidityEl);
-
+/** get the wind speed for each day */
           let forecastWindEl = document.createElement("p");
           forecastWindEl.innerHTML = "Wind: " + response.list[i + 1].wind.speed + "  MPH";
           forecastEls[i].append(forecastWindEl);
