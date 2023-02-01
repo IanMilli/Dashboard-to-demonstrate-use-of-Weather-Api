@@ -138,12 +138,15 @@ $(document).ready(function () {
       });
 
       /**get the five day forecast for the requested city */
+      /**make the variable cityID equal the id received in the response from the api that connects to the city the user has requested */
       let cityID = response.id;
+      /**send a query to the api based on the city id value and including the api key to authorize the request using the ajax function*/
       let fiveDayQueryURL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityID}&appid=${myAPIKey}`;
       $.ajax({
         url: fiveDayQueryURL,
         method: "GET"
       }).then(function (response) {
+        /*remove the d-none class from the fivedays element*/
         fiveDayEl.classList.remove("d-none");
 
         //  Parse response to display forecast for next 5 days
