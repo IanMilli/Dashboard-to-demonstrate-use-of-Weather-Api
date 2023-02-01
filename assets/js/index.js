@@ -217,7 +217,7 @@ $(document).ready(function () {
   function kelvinToCelsius(k) {
     return Math.floor(k - 273.15);
   }
-
+/** create function to render the search history */
   function renderSearchHistory() {
     historyEl.innerHTML = "";
     for (let i = 0; i < searchHistory.length; i++) {
