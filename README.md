@@ -40,9 +40,9 @@ The following criteria are required to be met for the project to be viewed as co
 
 ## Links
 
-To view this application please click the following link: [Deployed Application](https://ianmilli.github.io/Week-8-Weather-API-Dashboard/).
+To view this application please click the following link: [Deployed Application](https://ianmilli.github.io/Dashboard-to-test-use-of-Weather-Api/).
 
-to view the repository for this application please click the following link: [Repository](https://github.com/IanMilli/Week-8-Weather-API-Dashboard).
+to view the repository for this application please click the following link: [Repository](https://github.com/IanMilli/Dashboard-to-test-use-of-Weather-Api/).
 ## Usage 
 
 To use the website the user will need to go to the deployed application, a link for which can be found under the [Links](#links) section of the readme file.
