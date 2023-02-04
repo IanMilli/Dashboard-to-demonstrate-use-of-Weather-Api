@@ -1,11 +1,51 @@
 body {
  
-
+/* css to create a background to the whole page - image located in in assets/images/background. 
+use no repeat to ensure picture only displays once regardless of screen size
+use cover so background will adjust to cover the size of webpage regardless of display size*/
     background-image: url(../images/background/background\ card\ image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
 }
+/* styling for h1 font - webpage header - use vw to make text responsive to multiple display sizes*/
+h1 {
+   
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3vw;
+    color: rgb(110, 2, 63);
+
+}
+/*styling for h2 text - text for displaying current day and time*/
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.8vw;
+    color: navy(255, 252, 252);
+}
+/*code to style h3 test - Ian Millichamp*/
+h3 {font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2vw;
+    color: rgba(80, 80, 80, 0.677);
+}
+/*code to style text that describes how to use the website and title of nested card for user input*/
+h4 {font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2vw;
+    color: black;
+}
+/*code to style text that is the title to the search history box and make it responsive to media changes*/
+h5 {font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5vw;
+    color: (0, 0, 0);
+}
+/*code to style p class text on webpage*/
+p {font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3vw;
+    color: navy(255, 252, 252);
+
+}
+
+/*styling to card containing instructions and input box*/
 .title { 
     background-image: url(../images/background/background\ 3.jpg);
     background-repeat: no-repeat;
@@ -13,20 +53,21 @@ body {
     border: 0.3vw solid navy;
    
 }
-.title1 { 
+/*styling for box that contains next five days of data */
+.fiveDays { 
     background-image: url(../images/background/background\ 4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border: 0.3vw solid navy;
    
 }
-
+/* styling for the nested card that includes the input box to search for cities*/
 .searchBox {
     background-image: url(../images/background/background\ 5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+/*styling for box that contains user search history of cities*/
 .hBox {
     background-image: url(../images/background/background2.jpg);
     background-repeat: no-repeat;
@@ -34,6 +75,7 @@ body {
     border: 0.3vw solid black;
 
 }
+
 .title2 {
     background-image: url(../images/background/background\ 3.jpg);
     background-repeat: no-repeat;
@@ -41,16 +83,52 @@ body {
     border: 0.3vw solid navy;
 }
 
-
+/*styling for first box for five day forcast to allow boxes to have a graded background */
 .bG1 {
     background-color: rgb(152, 188, 250);
 }
+/*styling for day 2*/
 .bG2 {
     background-color: rgb(112, 160, 242);
 }
+/*styling for day 3*/
 .bG3 {
     background-color: rgb(80, 143, 252);
 }
+/*styling for day 4*/
 .bG4 {
     background-color: rgb(31, 113, 255);
+}
+/*no styling required for day 5 as its color coded using bootstrap class bg-primary*/
+
+
+/* Buttons arranged in column on xs devices */
+@media screen and (max-width: 576px) {
+    .btn, .responsive-content {
+        width: 80%;
+        padding: 10px 15px;
+        margin: 5px 10px;
+    }
+    /*added code to change display of top three cards from row to column*/
+    .responsive-column{
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        margin-left: 0%;
+}
+}
+
+@media (max-width:750px) {
+    .responsive-content {
+        font-size: 1.5vw;
+    }
+    
+}
+
+
+
+@media (max-width: 1000px) {
+    .responsive-content {
+        font-size: 1.7vw;
+    }
 }

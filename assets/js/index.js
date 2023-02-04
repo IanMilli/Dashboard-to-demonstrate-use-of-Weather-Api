@@ -225,7 +225,7 @@ $(document).ready(function () {
       const historyItem = document.createElement("input");
       historyItem.setAttribute("type", "button");
       historyItem.setAttribute("readonly", true);
-      historyItem.setAttribute("class", "form-control d-block bg-primary mb-1 text-white text-center");
+      historyItem.setAttribute("class", "form-control d-block bg-primary mb-1 text-white text-center responsive-content");
       historyItem.setAttribute("value", searchHistory[i]);
       historyItem.addEventListener("click", function () {
         getWeather(historyItem.value);
