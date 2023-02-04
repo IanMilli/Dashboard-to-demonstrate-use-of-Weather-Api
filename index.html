@@ -14,85 +14,98 @@
 </head>
 
 <body>
-
-  <div div class="container row mx-auto mt-3">
-    <div class="card title " style="width: 30vw;height:35vw;">
+  <!-- container that includes three cards that are displayed in a row across the top of the webpage-->
+  <div div class="container row mx-auto mt-3  ">
+    <!--create class card to create the section that displays the text explaining how to use the weather dashboard
+    changed height and width to work with % to be more responsive to multiple display sizes-->
+    <div class="card title " style="width: 35%;height:50%;">
       <div class="card-body ">
+        <!--title for web page - edited text using css to be more responsive-->
         <h1 class="card-title text-center">Weather Dashboard</h1>
         <h2 class="currentDayTime text-center"></h2>
-        <p  class="lead text-center"> Author: Ian Millichamp</p>
-        <p class="text-center">This is a simple Weather Dashboard, </p>
-        <p class="text-center">Use the input box to select a city you need current weather information </p>
-        <p class="text-center">and click the Search Cities button.</p>
+        <!--acknowledgment of website author-->
+        <h3 class=" text-center"> Author: Ian Millichamp</h3>
+        <!--explanation of how to use the dashboard - make text h4 class and style to make responsive in index.css-->
+        <h4 class="text-center">This is a simple Weather Dashboard, </h4>
+        <h4 class="text-center">Use the input box to select a city you need current weather information </h4>
+        <h4 class="text-center">and click the Search Cities button.</h4>
       </div>
-      <div class="card searchBox  mx-auto text-center mb-2" style="width: 27vw;">
-        <div class="card-body">
-          <h5 class="card-title">Search for a City:</h5>
-          <div class="row">
-            <input id="inputCity" type="text" class="form-control " style="width:18vw;" placeholder="Enter a city"
-              aria-label="Enter a city">
-            <button class="btn btn-primary mx-auto mb-1" type="button" id="searchBtn"> Search Cities</button>
+      <!-- create a card to be nested within the main card to contain the input box - set a larger width as this relates to the percent width of the 
+      parent card not the body-->
+      <div class="responsive-column">
+        <div class="card searchBox  mx-auto text-center mb-2" style="width: 95%;height: 1%">
+          <div class="card-body">
+            <h4 class="card-title">Search for a City:</h4>
+            <div class="row">
+              <!--input section so user can enter chosen city to search for the weather for-->
+              <input id="inputCity" type="text" class="form-control " style="width:60%;" placeholder="Enter a city"
+                aria-label="Enter a city">
+              <!--button to allow the user to search cities add responsive media content to aid adjusting button due to different media sizes-->
+              <button class="btn btn-primary responsive-content mx-auto mb-1" type="button" id="searchBtn"
+                style="width:auto"> Search Cities</button>
+            </div>
           </div>
-          
         </div>
       </div>
     </div>
-    
-    <div class="card hBox ml-5" style="width: 18vw; height:35vw;">
-      <div class="card-body text-center">
-        <h5 class="card-title">Search History</h5>
-        <p class="card-text">Click on the below displayed city buttons to view previously searched Cities</p>
-        <div class="  text-centre mx-auto " id="history"></div>
-        <p class="card-text">Click below to remove your search history</p>
-        <button class="btn btn-danger mx-auto mt-3" type="button" id="clearSearch">Clear Search History</button>
-      </div>
-    
-  </div>
-
-
-
-
-    <div class="row ml-5 "id="todaysWeatherBox">
-      <div class="card hBox d-none text-center" id="todaysWeather" style="width:18vw; height:35vw;">
-        <div class="card-body ">
-          <h3 id="cityName" class="cityName align-middle"></h3>
-          <img id="currentIMG" alt="">
-          <p id="temperature"></p>
-          <p id="pressure"></p>
-          <p id="humidity"></p>
-          <p id="windSpeed"></p>
-          <p id="UVIndex"></p>
-        </div>
-
-      
-       
-      </div>
-    </div>
-  </div>
- 
-     
-   
-
-  <div class="card title1 d-none" id="fiveDay"style="width: 83vw;height:28vw;margin-top: 1vw;margin-left: 10vw;">
-    <div class="card-body "> 
-      <div class="row   text-center" >
-        <div class="col-12 text-centre">
-          <h3>5-Day Forecast</h3>
+      <!--create a card to display search history of the user -->
+      <div class="card hBox ml-5" style="width: 20%; height:auto;">
+        <!--center text of card body-->
+        <div class="card-body text-center">
+          <!--add title of of the box displaying the users search history-->
+          <h5 class="card-title">Search History</h5>
+          <!--instructions to explain how to use the search box -->
+          <p class="card-text">Click on the below displayed city buttons to view previously searched cities</p>
+          <div class="  text-centre mx-auto " id="history"></div>
+          <p class="card-text">Click below to remove your search history</p>
+          <!--create a button for the user to clear the search-->
+          <button class="btn btn-danger responsive-content mx-auto mt-3" type="button" id="clearSearch"
+            style="width:auto">Clear Search History</button>
         </div>
       </div>
-      <div class="row ml-5">
-        <div class="text-center forecast forecastTemp bG1 text-white m-2 rounded" style="width:14vw;"></div>
-        <div class="text-center forecast forecastTemp bG2 text-white m-2 rounded" style="width:14vw;"></div>
-        <div class="text-center forecast forecastTemp bG3 text-white m-2 rounded" style="width:14vw;"></div>
-        <div class="text-center forecast forecastTemp bG4 text-white m-2 rounded" style="width:14vw;" ></div>
-        <div class="text-center forecast forecastTemp bg-primary text-white m-2 rounded" style="width:14vw;"></div>
+      <!--create a box to display the current days data in using classes to populate the data received from the api-->
+      <div class="row ml-5 " id="todaysWeatherBox">
+        <div class="card hBox d-none text-center" id="todaysWeather" style="width:100%; height:auto;">
+          <div class="card-body ">
+            <h3 id="cityName" class="cityName align-middle"></h3>
+            <!--add image for current days weather-->
+            <img id="currentIMG" alt="">
+            <!--add id to link to current days temperature-->
+            <p id="temperature"></p>
+            <!--add id to link to todays pressure-->
+            <p id="pressure"></p>
+            <!--add id to link to todays humidity-->
+            <p id="humidity"></p>
+            <!--add link to todays wind speed-->
+            <p id="windSpeed"></p>
+            <!--add link to todays UV index-->
+            <p id="UVIndex"></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <!--create card to populate with next five days data - use class d-none to hide card until required-->
+    <div class="card fiveDays d-none" id="fiveDay" style="width: 90%;height:20%;margin-top: 1%;margin-left: 5%;">
+      <div class="card-body ">
+        <div class="row   text-center">
+          <div class="col-12 text-centre">
+            <h3>5-Day Forecast</h3>
+          </div>
+        </div>
+        <div class="row ml-5 responsive-column">
+          <!--create five boxes to populate with the next five days of weather data-->
+          <div class="text-center forecast forecastTemp bG1 text-white m-2 rounded" style="width:18%;"></div>
+          <div class="text-center forecast forecastTemp bG2 text-white m-2 rounded" style="width: 18%;"></div>
+          <div class="text-center forecast forecastTemp bG3 text-white m-2 rounded" style="width:18%;"></div>
+          <div class="text-center forecast forecastTemp bG4 text-white m-2 rounded" style="width:18%;"></div>
+          <div class="text-center forecast forecastTemp bg-primary text-white m-2 rounded" style="width:18%;"></div>
+        </div>
+      </div>
+    </div>
   </div>
   </div>
   <footer class="mt-5 text-center">
-Weather Dashboard Created 2023 by Ian Millichamp
+    Weather Dashboard Created 2023 by Ian Millichamp
   </footer>
   <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
