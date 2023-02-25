@@ -55,15 +55,31 @@ If the user wishes to clear their search history they can do so by clicking 'cle
 
 ## Screenshots
 
-* The first page the user sees [Welcome Page](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/welcome%20page.png).
-   * The search for weather data on the city [Blackpool, UK](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/blackpool%20search.png).
-   * The search for weather data on the city [Anchorage, USA](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/anchorage%20search.png).
-    * The search for weather data on the city Edinburgh, UK](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/edinburgh.png).
-     * The search for weather data on the city [Las Vegas, USA](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/las%20vegas%20search.png).
-     * The search for weather data on the city [Wellington, NZ](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/wellington%20search.png).
-     * The screen shown once the clear button is [clicked](https://github.com/IanMilli/Week-8-Weather-API-Dashboard/blob/main/assets/images/screenshots/search%20button%20clicked.png).
+* The first page the user sees ![welcome page](https://user-images.githubusercontent.com/120601739/221375401-453da276-ca9f-492d-9ae7-f47c224bde2b.png)
+
+   * The search for weather data on the city Blackpool:
+   ![blackpool search](https://user-images.githubusercontent.com/120601739/221375458-0935891d-c042-4f82-b027-d3a3297e2b2b.png)
+
+   
+   * The search for weather data on the city Anchorage:
+   ![anchorage search](https://user-images.githubusercontent.com/120601739/221375465-14e3b414-4abe-4293-8ef2-bc2e1c24418a.png)
+
+   
+    * The search for weather data on the city Edinburgh, UK:
+    ![edinburgh](https://user-images.githubusercontent.com/120601739/221375472-f5040cbb-03c4-46b8-800d-5d5e85629b13.png)
+
     
-    
+     * The search for weather data on the city  Las Vegas, USA:
+     ![las vegas search](https://user-images.githubusercontent.com/120601739/221375477-a59d563a-2c6d-4e29-9b78-d4dd66a52cae.png)
+
+     
+     * The search for weather data on the city Wellington, NZ:
+     ![wellington search](https://user-images.githubusercontent.com/120601739/221375482-3d6251f0-6d57-4b78-b0a2-a72719c9fa96.png)
+
+     
+     * The screen shown once the clear button is clicked
+    ![search button clicked](https://user-images.githubusercontent.com/120601739/221375485-287133be-2194-4717-a682-a972f0f6a549.png)
+
 ## Credits
 
 
